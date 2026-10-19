@@ -2,7 +2,8 @@ import { toast } from "react-toastify";
 
 // Google Apps Script Web App URL - Replace with your deployed web app URL
 // To get this URL: Deploy > New deployment > Web app > Copy the URL
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmfZxjeP9Tv-_OJ1NZsSj9t9XxvCwPLIyOvpHvGNQPLj0fH4Wt-LgWJaSUjVYNOA3hyQ/exec";
+// Sheet updates are paused until the Shahrukhz sheet is connected.
+// const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmfZxjeP9Tv-_OJ1NZsSj9t9XxvCwPLIyOvpHvGNQPLj0fH4Wt-LgWJaSUjVYNOA3hyQ/exec";
 
 /**
  * Sends form data to Google Sheets via Google Apps Script
@@ -28,6 +29,11 @@ const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmfZxjeP9Tv-
  * @returns {Promise<boolean>} - Returns true if successful, false otherwise
  */
 const sendToGoogleSheets = async (formData) => {
+    // Sheet updates are paused. Forms still complete locally; nothing is written to the sheet.
+    console.log("Google Sheets update is temporarily disabled.", formData?.source || "");
+    return { success: true, message: "Sheet update skipped" };
+
+    /*
     // Skip if URL is not configured
     if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("YOUR_GOOGLE_APPS_SCRIPT")) {
         console.warn("Google Sheets integration not configured. Skipping...");
@@ -75,6 +81,7 @@ const sendToGoogleSheets = async (formData) => {
         // Return success: false but don't block the main flow
         return { success: false, error: error.message };
     }
+    */
 };
 
 /**
