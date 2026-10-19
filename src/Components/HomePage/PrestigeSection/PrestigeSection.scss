@@ -1,0 +1,109 @@
+.lifestyle-section {
+  background: #f4f8fb;
+  padding: 110px 0 90px;
+  overflow: hidden;
+
+  .lifestyle-header {
+    max-width: 860px;
+    margin: 0 auto 70px;
+    padding: 0 40px;
+    text-align: center;
+
+    .lifestyle-second {
+      margin-top: 16px;
+    }
+  }
+
+  .lifestyle-rail {
+    display: flex;
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    border-top: 1px solid rgba(0, 132, 200, 0.2);
+    border-bottom: 1px solid rgba(0, 132, 200, 0.2);
+  }
+
+  .highlight-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 22px;
+    border-right: 1px solid rgba(0, 132, 200, 0.16);
+
+    &:last-child {
+      border-right: none;
+    }
+
+    .highlight-value {
+      font-family: "GT-Ultra", "Anek Latin", sans-serif;
+      font-size: clamp(22px, 2.2vw, 34px);
+      font-weight: 700;
+      color: #0A0A0A;
+      line-height: 1;
+    }
+
+    .highlight-unit {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #0084C8;
+      margin: 10px 0 14px;
+      font-weight: 700;
+    }
+
+    .highlight-label {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.4;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .lifestyle-rail {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 24px;
+    }
+
+    .highlight-card {
+      border-right: 1px solid rgba(0, 132, 200, 0.16);
+      border-bottom: 1px solid rgba(0, 132, 200, 0.16);
+
+      &:nth-child(3n) {
+        border-right: none;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    padding: 70px 0 50px;
+
+    .lifestyle-header {
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+
+    .lifestyle-rail {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 16px;
+    }
+
+    .highlight-card {
+      padding: 24px 16px;
+
+      .highlight-value {
+        font-size: 28px;
+      }
+
+      &:nth-child(3n) {
+        border-right: 1px solid rgba(0, 132, 200, 0.16);
+      }
+
+      &:nth-child(2n) {
+        border-right: none;
+      }
+    }
+  }
+}

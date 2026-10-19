@@ -1,6 +1,6 @@
-@import '../../../index.scss';
+@import '../../../variables';
 
-// Chatbot Styles - Azizi David Theme
+// Chatbot Styles - Azizi Jaddaf Beach Oasis Theme
 .chatbot-toggle-btn {
     position: fixed;
     bottom: 20px;
@@ -98,8 +98,8 @@
         overflow: hidden;
 
         img {
-            width: 30px;
-            height: 30px;
+            width: 38px;
+            height: 38px;
             object-fit: contain;
         }
     }

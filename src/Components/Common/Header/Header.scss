@@ -1,7 +1,8 @@
-@import '../../../index.scss';
+@import '../../../variables';
 
 .navbar {
     position: fixed;
+    background: #0A0A0A;
     top: 0;
     left: 0;
     right: 0;
@@ -51,7 +52,8 @@
         }
 
         .logo-azizi {
-            max-width: 120px;
+            max-width: 210px;
+            height: 52px;
         }
 
         .logo-divider {
@@ -62,8 +64,8 @@
         }
 
         .logo-propwise {
-            max-width: 120px;
-            height: 50px;
+            max-width: 150px;
+            height: 75px;
         }
     }
 
@@ -230,7 +232,7 @@
     right: -100%;
     width: 352px;
     height: 100vh;
-    background: $primary-color;
+    background: #0A0A0A;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
@@ -311,7 +313,11 @@
     z-index: 9998;
     transition: all 0.3s ease;
     text-decoration: none;
-    animation: pulse 2s ease-in-out infinite;
+    svg {
+        width: 30px;
+        height: 30px;
+        color: white;
+    }
 
     img {
         width: 32px;
@@ -403,7 +409,8 @@
 }
 
 .navbar.sticky {
-    background: $primary-color;
+    top: 0;
+    background: #0A0A0A;
     color: white;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
@@ -430,7 +437,7 @@
                     left: 0;
                     width: 0;
                     height: 2px;
-                    background: white;
+                    background: #C9A227;
                     transition: width 0.3s ease;
                 }
 
@@ -543,23 +550,23 @@
         }
 
         .logo-azizi {
-            max-width: 100px;
-            height: 50px;
+            max-width: 160px;
+            height: 42px;
         }
         .logo-divider {
             height: 28px;
         }
         .logo-propwise {
-            max-width: 80px;
-            height: 32px;
+            max-width: 120px;
+            height: 60px;
         }
     }
 
     .navbar.sticky {
         border-radius: 0px;
         top: 0;
-        background: $primary-color;
-        color: black;
+        background: #0A0A0A;
+        color: white;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
@@ -593,6 +600,7 @@
 
 @media (max-width: 768px) {
     .navbar {
+        top: 0;
         padding: 15px 30px;
         min-height: 65px;
         // backdrop-filter: blur(20px);
@@ -601,15 +609,15 @@
         color: white;
 
         .logo-azizi {
-            max-width: 90px;
-            height: 45px;
+            max-width: 150px;
+            height: 40px;
         }
         .logo-divider {
             height: 24px;
         }
         .logo-propwise {
-            max-width: 70px;
-            height: 28px;
+            max-width: 100px;
+            height: 50px;
         }
 
         .header-icons {
@@ -681,15 +689,15 @@
         color: white;
 
         .logo-azizi {
-            max-width: 80px;
-            height: 40px;
+            max-width: 140px;
+            height: 36px;
         }
         .logo-divider {
             height: 22px;
         }
         .logo-propwise {
-            max-width: 60px;
-            height: 24px;
+            max-width: 80px;
+            height: 40px;
         }
 
         .header-icons {
@@ -784,15 +792,15 @@
         color: white;
 
         .logo-azizi {
-            max-width: 70px;
-            height: 35px;
+            max-width: 130px;
+            height: 34px;
         }
         .logo-divider {
             height: 20px;
         }
         .logo-propwise {
-            max-width: 52px;
-            height: 22px;
+            max-width: 70px;
+            height: 40px;
         }
         .logo-div {
             gap: 10px;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./Header.scss"
 
-import olfahLogoWhite from "../../../Assets/Logo/Azizi-Logo-White.png"
-import propwiseLogo from "../../../Assets/Logo/propwise-logo.webp"
-import whatsapp from "../../../Assets/Common/whatsapp.svg"
+import projectLogo from "../../../Assets/Logo/Shahrukz-by-Danube-Logo.png"
+import propwiseLogo from "../../../Assets/Logo/propwise-logo-white.png"
+import { FaWhatsapp } from "react-icons/fa"
 
 import { useLocation } from 'react-router-dom'
 import { navs } from '../../../App.util'
@@ -18,12 +18,14 @@ export default function Header(){
 
     const [ mobileMenu, setMobileMenu ] = useState(false)
     const [ showBrochurePopup, setShowBrochurePopup ] = useState(false)
+    const [ brochureConfiguration, setBrochureConfiguration ] = useState("")
 
     const toggleMenu = () => {
         setMobileMenu(!mobileMenu)
     }
 
     const handleBrochureClick = () => {
+        setBrochureConfiguration("")
         setShowBrochurePopup(true)
     }
 
@@ -32,18 +34,26 @@ export default function Header(){
     }
 
     useEffect(() => {
+        const openBrochure = (event) => {
+            setBrochureConfiguration(event.detail?.configuration || "")
+            setShowBrochurePopup(true)
+        }
+        window.addEventListener("open-brochure", openBrochure)
+        return () => window.removeEventListener("open-brochure", openBrochure)
+    }, [])
+
+    useEffect(() => {
         const handleScroll = () => {
             // Debug logs - remove after testing
-            console.log('Current pathname:', location.pathname);
-            console.log('Scroll Y:', window.scrollY);
-            console.log('Is sticky currently:', isSticky);
+            // console.log('Current pathname:', location.pathname);
+            // console.log('Scroll Y:', window.scrollY);
+            // console.log('Is sticky currently:', isSticky);
             
             if(location.pathname === "/thank-you" || location.pathname !== "/") {
                 setIsSticky(true)
             } else if(window.scrollY > 100) {
                 setIsSticky(true)
             } else {
-                console.log('Setting sticky to false');
                 setIsSticky(false)
             }
 
@@ -162,10 +172,10 @@ export default function Header(){
     return (
         <nav className='navbar-container'>
             <div className={`navbar ${isSticky ? "sticky" : ""} ${location.pathname === "/thank-you" ? "thank-you-header" : ""}`}>
-                {/* Left Logo: Azizi David | Divider | Propwise */}
+                {/* Left Logo: Azizi Florence | Divider | Propwise */}
                 <div className="logo-div">
                     <a href="/" className="logo-link">
-                        <img src={olfahLogoWhite} alt="Azizi David Logo" className="logo logo-azizi" />
+                        <img src={projectLogo} alt="Shahrukhz by Danube" className="logo logo-azizi" />
                     </a>
                     <span className="logo-divider" aria-hidden="true" />
                     <img src={propwiseLogo} alt="Propwise Realty" className="logo logo-propwise" />
@@ -181,7 +191,7 @@ export default function Header(){
                 {/* Right WhatsApp Button */}
                 <div className="whatsapp-div-right">
                     <a 
-                        href="https://wa.me/+971545118288?text=Hello, I'm interested in Azizi David" 
+                        href="https://wa.me/+971545118288?text=Hello, I'm interested in Shahrukhz by Danube" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="whatsapp-header-btn"
@@ -209,12 +219,12 @@ export default function Header(){
             
             {/* Fixed WhatsApp Button for Mobile */}
             <a 
-                href="https://wa.me/+971545118288?text=Hello, I'm interested in Azizi David" 
+                href="https://wa.me/+971545118288?text=Hello, I'm interested in Shahrukhz by Danube" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="whatsapp-fixed-btn"
             >
-                <img src={whatsapp} alt="WhatsApp" />
+                <FaWhatsapp />
             </a>
 
             {/* Fixed Brochure Download Button */}
@@ -224,10 +234,11 @@ export default function Header(){
 
             {/* Brochure Download Popup */}
             {showBrochurePopup && (
-                <PopupForm 
-                    handleClose={handleCloseBrochurePopup} 
-                    isBrochureDownload={true} 
-                />
+                    <PopupForm 
+                        handleClose={handleCloseBrochurePopup} 
+                        isBrochureDownload={true}
+                        initialConfiguration={brochureConfiguration}
+                    />
             )}
         </nav>
     )

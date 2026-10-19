@@ -1,0 +1,105 @@
+@import '../../../variables';
+
+.location-section {
+    background: #ffffff;
+    padding: 40px 60px 80px;
+    width: 100%;
+
+    .location-inner {
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .location-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 36px;
+        width: 100%;
+
+        .section-header {
+            max-width: 860px;
+            margin: 0 auto;
+
+            .section-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    .places-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        width: 100%;
+    }
+
+    .place-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+        padding: 18px 0 0;
+        border-top: 2px solid $primary-color;
+    }
+
+    .place-time {
+        font-family: "Anek Latin", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: $primary-color;
+        letter-spacing: 1px;
+    }
+
+    .place-name {
+        font-family: "Anek Latin", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        color: #222;
+        line-height: 1.4;
+    }
+
+    .location-image-wrap {
+        width: 100%;
+        aspect-ratio: 1500 / 600;
+        overflow: hidden;
+        background: #0A0A0A;
+    }
+
+    .location-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    @media (max-width: 900px) {
+        padding: 32px 28px 50px;
+
+        .places-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 560px) {
+        padding: 28px 20px 40px;
+
+        .places-list {
+            grid-template-columns: 1fr;
+        }
+
+        .place-time {
+            font-size: 18px;
+        }
+    }
+}

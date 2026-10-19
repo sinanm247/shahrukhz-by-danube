@@ -2,9 +2,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-// import { sendContactFormEmail, sendChatbotToGoogleSheets } from "../../../Utils/emailService";
+import { sendContactFormEmail, sendChatbotToGoogleSheets } from "../../../Utils/emailService";
 import "./Chatbot.scss";
-import chatbotIcon from "../../../Assets/Logo/chatbot-icon.jpg";
+import chatbotIcon from "../../../Assets/Logo/chatbot-icon.png";
 import { TbMessageChatbot } from "react-icons/tb";
 import { floorPlanOptions } from "../../../Utils/floorPlans";
 
@@ -80,7 +80,7 @@ export default function Chatbot() {
             setMessages([
                 {
                     type: "bot",
-                    content: "Hi there! 👋 Welcome to Azizi David. How can I assist you in finding your dream home at Dubai Creek today?",
+                    content: "Hi there! Welcome to Shahrukhz by Danube. Premium offices on Sheikh Zayed Road start from AED 1.9M. How can I help you today?",
                     timestamp: new Date(),
                 },
                 {
@@ -244,7 +244,7 @@ export default function Chatbot() {
         setChatData((prev) => ({ ...prev, visitedBefore: visited }));
         setShowOptions(false);
         setTimeout(() => {
-            addBotMessageWithTyping("Select the configuration you are looking for:");
+            addBotMessageWithTyping("Which layout are you looking for?");
         }, 300);
     };
 
@@ -274,7 +274,7 @@ export default function Chatbot() {
         setIsSubmitting(true);
         setShowOptions(false);
 
-        /* --- Email service commented out - uncomment when needed ---
+        // --- Email service commented out - uncomment when needed ---
         const message = `
             Chatbot Inquiry Details:
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -321,29 +321,29 @@ export default function Chatbot() {
         } finally {
             setIsSubmitting(false);
         }
-        --- End commented block --- */
+        // --- End commented block ---
 
         // For now: navigate to thank-you page directly (no email sent)
-        setIsFormSubmitted(true);
-        setCloseCount(0);
-        localStorage.removeItem(CHATBOT_CLOSE_COUNT_KEY);
-        localStorage.removeItem(CHATBOT_LAST_CLOSE_TIME_KEY);
-        setTimeout(() => {
-            addBotMessageWithTyping(
-                <div className="chatbot-success-message">
-                    <div className="success-icon">✅</div>
-                    <h3>Thank you for your interest!</h3>
-                    <p>Our sales executive will get in touch with you shortly.</p>
-                    <div className="contact-info">
-                        <p>📞 For instant information, please call:</p>
-                        <a href="tel:+971545118288" className="phone-link">
-                            +971 54 511 8288
-                        </a>
-                    </div>
-                </div>,
-                1200
-            );
-        }, 500);
+        // setIsFormSubmitted(true);
+        // setCloseCount(0);
+        // localStorage.removeItem(CHATBOT_CLOSE_COUNT_KEY);
+        // localStorage.removeItem(CHATBOT_LAST_CLOSE_TIME_KEY);
+        // setTimeout(() => {
+        //     addBotMessageWithTyping(
+        //         <div className="chatbot-success-message">
+        //             <div className="success-icon">✅</div>
+        //             <h3>Thank you for your interest!</h3>
+        //             <p>Our sales executive will get in touch with you shortly.</p>
+        //             <div className="contact-info">
+        //                 <p>📞 For instant information, please call:</p>
+        //                 <a href="tel:+971545118288" className="phone-link">
+        //                     +971 54 511 8288
+        //                 </a>
+        //             </div>
+        //         </div>,
+        //         1200
+        //     );
+        // }, 500);
 
         // Navigate to thank-you page
         setTimeout(() => {
@@ -384,7 +384,7 @@ export default function Chatbot() {
         setMessages([
             {
                 type: "bot",
-                content: "Hi there! 👋 Welcome to Azizi David. How can I assist you in finding your dream home at Dubai Creek today?",
+                content: "Hi there! Welcome to Shahrukhz by Danube. Premium offices on Sheikh Zayed Road start from AED 1.9M. How can I help you today?",
                 timestamp: new Date(),
             },
             {
@@ -419,7 +419,7 @@ export default function Chatbot() {
                                 <img src={chatbotIcon} alt="Chatbot" />
                             </div>
                             <div className="chatbot-header-text">
-                                <h3>Azizi David Assistant</h3>
+                                <h3>Shahrukhz by Danube</h3>
                                 <p>Online</p>
                             </div>
                         </div>

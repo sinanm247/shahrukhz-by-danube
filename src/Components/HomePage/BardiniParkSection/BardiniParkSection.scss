@@ -1,0 +1,82 @@
+.bardini-section {
+  background: #f8f6f1;
+  padding: 100px 60px;
+
+  .bardini-split {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .bardini-image {
+    position: sticky;
+    top: 110px;
+    aspect-ratio: 1 / 1;
+    background: white;
+    border: 1px solid rgba(12, 25, 41, 0.08);
+    box-shadow: 0 20px 50px rgba(12, 25, 41, 0.08);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  .bardini-content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    .amenity-count {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #8A6941;
+      margin: 8px 0 0;
+    }
+
+    .amenity-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .amenity-pills li {
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      padding: 8px 12px;
+      background: white;
+      border: 1px solid rgba(12, 25, 41, 0.1);
+      color: #2b2b2b;
+    }
+
+    .btn.btn-primary {
+      width: fit-content;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    padding: 80px 28px;
+
+    .bardini-split {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .bardini-image {
+      position: relative;
+      top: auto;
+      max-width: 560px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+}

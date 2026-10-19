@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 // Google Apps Script Web App URL - Replace with your deployed web app URL
 // To get this URL: Deploy > New deployment > Web app > Copy the URL
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwEfq-kxYA_6UGF3tmVfdm-tZbiG8_pj8EvXwwLDQ-C2NFBGO7u-3G6Bs1PBcEADmM9Kw/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmfZxjeP9Tv-_OJ1NZsSj9t9XxvCwPLIyOvpHvGNQPLj0fH4Wt-LgWJaSUjVYNOA3hyQ/exec";
 
 /**
  * Sends form data to Google Sheets via Google Apps Script
@@ -48,47 +48,26 @@ const sendToGoogleSheets = async (formData) => {
             pageUrl: formData.pageUrl || "",
         };
         
-        // Debug logging
+        // Debug logging (optional - remove in production if desired)
         console.log("Sending to Google Sheets - Full data:", JSON.stringify(dataToSend, null, 2));
         console.log("Source being sent:", dataToSend.source);
         console.log("Configuration being sent:", dataToSend.configuration);
-        
-        // Try with CORS mode first to get proper response
-        try {
-            const response = await fetch(GOOGLE_SCRIPT_URL, {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(dataToSend),
-            });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+        // Google Apps Script does not send CORS headers, so the browser would block
+        // the response if we used mode: "cors". We use mode: "no-cors" so the POST
+        // is sent and processed by GAS (sheet + email work). We cannot read the
+        // response body; we assume success if the request is sent without throwing.
+        await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataToSend),
+        });
 
-            const result = await response.json();
-            console.log("Data sent to Google Sheets successfully:", result);
-            return { success: true, message: result.message || "Data sent successfully" };
-        } catch (corsError) {
-            // If CORS fails, try with no-cors mode as fallback
-            console.warn("CORS mode failed, trying no-cors mode:", corsError);
-            
-            await fetch(GOOGLE_SCRIPT_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(dataToSend),
-            });
-
-            // With no-cors mode, we can't read the response, but the data is still sent
-            // We assume success since the request was sent without errors
-            console.log("Data sent to Google Sheets (response not readable due to no-cors mode)");
-            return { success: true, message: "Data sent successfully" };
-        }
+        console.log("Data sent to Google Sheets (response not readable — GAS does not support CORS)");
+        return { success: true, message: "Data sent successfully" };
         
     } catch (error) {
         console.error("Google Sheets error:", error);
@@ -208,4 +187,3 @@ export const sendChatbotToGoogleSheets = async (chatData) => {
         return { success: false, error };
     }
 };
-

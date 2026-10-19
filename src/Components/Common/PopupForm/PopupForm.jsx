@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// import { sendContactFormEmail } from "../../../Utils/emailService";
+import { sendContactFormEmail } from "../../../Utils/emailService";
 
 import './PopupForm.scss';
-import logo from "../../../Assets/Logo/Azizi-Logo-White.png";
-import image from "../../../Assets/Gallery/image-10.webp";
-import brochure from "../../../Assets/Common/Azizi-David-Brochure.pdf";
+import logo from "../../../Assets/Logo/Shahrukz-by-Danube-Logo.png";
+import image from "../../../Assets/Banners/Image-1.webp";
+import brochure from "../../../Assets/Common/Shahrukz-by-Danube-Brochure.pdf";
 import { useNavigate } from 'react-router-dom';
 import { IoClose } from 'react-icons/io5';
 import { TextField, MenuItem } from '@mui/material';
@@ -17,20 +17,20 @@ import { floorPlanOptions } from "../../../Utils/floorPlans";
 const downloadBrochure = () => {
   const link = document.createElement('a');
   link.href = brochure;
-  link.download = 'Azizi-David-Brochure-Payment-Plan.pdf';
+  link.download = 'Shahrukz-by-Danube-Brochure.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 };
 
-function PopupForm({ handleClose, isBrochureDownload = true }) {
+function PopupForm({ handleClose, isBrochureDownload = true, initialConfiguration = "" }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     message: '',
-    configuration: '',
+    configuration: initialConfiguration,
   });
 
   const [formErrors, setFormErrors] = useState({});
@@ -54,7 +54,7 @@ function PopupForm({ handleClose, isBrochureDownload = true }) {
   const handleSendEmail = async (formData) => {
     setIsLoading(true);
     setResponse("");
-    /* --- Email service commented out - uncomment when needed ---
+    // --- Email service commented out - uncomment when needed ---
     const formDataWithSource = {
       ...formData,
       source: "Brochure Download Popup"
@@ -80,17 +80,17 @@ function PopupForm({ handleClose, isBrochureDownload = true }) {
     } finally {
       setIsLoading(false);
     }
-    --- End commented block --- */
+    // --- End commented block ---
 
     // For now: navigate to thank-you page directly (no email sent)
-    setResponse("Email sent successfully!");
-    toast.success("Thank you! Your brochure is downloading...");
-    downloadBrochure();
-    setFormData({ name: '', phone: '', email: '', message: '', configuration: '' });
-    setFormErrors({});
-    handleClose();
-    setTimeout(() => navigate("/thank-you"), 2000);
-    setIsLoading(false);
+    // setResponse("Email sent successfully!");
+    // toast.success("Thank you! Your brochure is downloading...");
+    // downloadBrochure();
+    // setFormData({ name: '', phone: '', email: '', message: '', configuration: '' });
+    // setFormErrors({});
+    // handleClose();
+    // setTimeout(() => navigate("/thank-you"), 2000);
+    // setIsLoading(false);
   };
 
   const handleFormSubmit = (e) => {
@@ -127,17 +127,17 @@ function PopupForm({ handleClose, isBrochureDownload = true }) {
           </button>
 
           <div className="popup-background">
-            <img src={image} alt="Azizi David" />
+            <img src={image} alt="Shahrukhz by Danube" />
             <div className="background-overlay"></div>
           </div>
 
           <div className="popup-content">
             <div className="popup-header">
-              <img src={logo} alt="Azizi David" className="popup-logo" />
+              <img src={logo} alt="Shahrukhz by Danube" className="popup-logo" />
               <h1 className="popup-title">Download Brochure & Payment Plan</h1>
-              <p className="popup-subtitle">
-                Fill in your details to receive our brochure and payment plan for Azizi David
-              </p>
+              {/* <p className="popup-subtitle">
+                Share your details to receive the Shahrukhz by Danube brochure and payment plan. Offices on Sheikh Zayed Road, starting from AED 1.9M.
+              </p> */}
             </div>
 
             <form onSubmit={handleFormSubmit} className="popup-form">
@@ -221,7 +221,7 @@ function PopupForm({ handleClose, isBrochureDownload = true }) {
                 label="Message" 
                 variant="outlined" 
                 multiline 
-                rows={4} 
+                rows={2} 
                 value={formData.message} 
                 onChange={handleUpdate('message')} 
                 fullWidth 

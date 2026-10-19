@@ -1,9 +1,5 @@
-@import './_fonts.scss';
-
-$primary-color: #0C1929;
-$secondary-color: #8A6941;
-$black: #000000;
-$white: #FFFFFF;
+@import './variables';
+@import './fonts';
 
 * {
   margin: 0;
@@ -134,7 +130,7 @@ a:hover {
       color: white;
   }
   50% {
-      background: white;
+      background: $black;
       color: $secondary-color;
   }
 }
@@ -178,7 +174,7 @@ a:hover {
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #8A6941;
+    color: #C9A227;
     margin: 0 0 20px 0;
   }
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./ThankYou.css";
 
 import Helmet from "../../General/Helmet";
-import banner1 from "../../Assets/Gallery/image-3.webp";
+import banner1 from "../../Assets/Banners/Image-1.webp";
 import { initThankYouPageScripts } from "../../Utils/scripts";
 
 export default function Thankyou() {    
@@ -19,7 +19,7 @@ export default function Thankyou() {
 
     return (
         <>
-            <Helmet title="Azizi David | Thank You" />
+            <Helmet title="Shahrukhz by Danube | Thank You" />
             <div className="thankyou-hero">
                 <div className="overlay"></div>
                 <div className="banner-container">
