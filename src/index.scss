@@ -269,6 +269,12 @@ a:hover {
   } 
 }
 
+@media (max-width: 768px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+}
+
 @media(max-width: 900px) {
   .section-container {
     // margin-left: auto;

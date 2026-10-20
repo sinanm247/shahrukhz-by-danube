@@ -213,6 +213,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .home-hero {
+    height: calc(100vh - 76px);
+    height: calc(100dvh - 76px - env(safe-area-inset-bottom));
+  }
+}
+
 @media (max-width: 968px) {
   .home-hero {
     .hero-content {

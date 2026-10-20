@@ -466,10 +466,16 @@
     }
 }
 
+@media (max-width: 768px) {
+    .chatbot-toggle-btn {
+        bottom: 88px;
+    }
+}
+
 // Mobile Responsive
 @media (max-width: 480px) {
     .chatbot-toggle-btn {
-        bottom: 15px;
+        bottom: 88px;
         right: 15px;
         width: 56px;
         height: 56px;

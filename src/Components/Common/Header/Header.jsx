@@ -235,6 +235,12 @@ export default function Header(){
                 <span>Download Brochure & Payment Plan</span>
             </button>
 
+            <div className="mobile-quote-bar">
+                <button type="button" className="mobile-quote-btn" onClick={handleBrochureClick}>
+                    Get a Quote
+                </button>
+            </div>
+
             {/* Brochure Download Popup */}
             {showBrochurePopup && (
                     <PopupForm 
