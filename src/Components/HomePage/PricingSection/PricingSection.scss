@@ -1,0 +1,126 @@
+#price-list .section-container {
+    padding-bottom: 56px;
+}
+
+.pricing-list-section {
+    .pricing-list-header {
+        text-align: center;
+        margin-bottom: 48px;
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .price-block {
+        max-width: 1100px;
+        margin: 0 auto 42px;
+    }
+
+    .price-block-title {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        color: #0A0A0A;
+        margin: 0 0 16px;
+    }
+
+    .price-table-wrap {
+        overflow-x: auto;
+        border: 1px solid rgba(201, 162, 39, 0.45);
+        background: #ffffff;
+    }
+
+    .price-table {
+        width: 100%;
+        min-width: 640px;
+        border-collapse: collapse;
+        font-family: "Anek Latin", sans-serif;
+
+        th,
+        td {
+            padding: 16px 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+            vertical-align: middle;
+        }
+
+        th {
+            background: #0A0A0A;
+            color: #C9A227;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        td {
+            font-size: 15px;
+            color: #0A0A0A;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) td {
+            background: rgba(0, 132, 200, 0.04);
+        }
+
+        .price-figure {
+            font-weight: 700;
+            color: #0084C8;
+            white-space: nowrap;
+        }
+
+        td.level-cell,
+        tbody tr:nth-child(even) td.level-cell {
+            font-weight: 700;
+            color: #C9A227;
+            background: #0A0A0A;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+        }
+
+        .price-note {
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            color: #C9A227;
+        }
+    }
+
+    .price-list-note {
+        max-width: 860px;
+        margin: 8px auto 0;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .price-list-cta {
+        max-width: 720px;
+        margin: 48px auto 0;
+        text-align: center;
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            color: #0A0A0A;
+        }
+
+        p {
+            margin: 0 0 22px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .btn {
+            margin: 0 auto;
+            text-transform: uppercase;
+        }
+    }
+}

@@ -80,7 +80,7 @@ export default function Chatbot() {
             setMessages([
                 {
                     type: "bot",
-                    content: "Hi there! Welcome to Shahrukhz by Danube. Premium offices on Sheikh Zayed Road start from AED 1.9M. How can I help you today?",
+                    content: "Hi there! Welcome to Shahrukhz by Danube. Premium offices on Sheikh Zayed Road start from AED 1.65M. How can I help you today?",
                     timestamp: new Date(),
                 },
                 {
@@ -384,7 +384,7 @@ export default function Chatbot() {
         setMessages([
             {
                 type: "bot",
-                content: "Hi there! Welcome to Shahrukhz by Danube. Premium offices on Sheikh Zayed Road start from AED 1.9M. How can I help you today?",
+                content: "Hi there! Welcome to Shahrukhz by Danube. Premium offices on Sheikh Zayed Road start from AED 1.65M. How can I help you today?",
                 timestamp: new Date(),
             },
             {

@@ -19,6 +19,7 @@ export default function Header(){
     const [ mobileMenu, setMobileMenu ] = useState(false)
     const [ showBrochurePopup, setShowBrochurePopup ] = useState(false)
     const [ brochureConfiguration, setBrochureConfiguration ] = useState("")
+    const [ downloadType, setDownloadType ] = useState("brochure")
 
     const toggleMenu = () => {
         setMobileMenu(!mobileMenu)
@@ -26,6 +27,7 @@ export default function Header(){
 
     const handleBrochureClick = () => {
         setBrochureConfiguration("")
+        setDownloadType("brochure")
         setShowBrochurePopup(true)
     }
 
@@ -36,6 +38,7 @@ export default function Header(){
     useEffect(() => {
         const openBrochure = (event) => {
             setBrochureConfiguration(event.detail?.configuration || "")
+            setDownloadType(event.detail?.download || "brochure")
             setShowBrochurePopup(true)
         }
         window.addEventListener("open-brochure", openBrochure)
@@ -238,6 +241,7 @@ export default function Header(){
                         handleClose={handleCloseBrochurePopup} 
                         isBrochureDownload={true}
                         initialConfiguration={brochureConfiguration}
+                        downloadType={downloadType}
                     />
             )}
         </nav>

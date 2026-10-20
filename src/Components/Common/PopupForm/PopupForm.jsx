@@ -6,6 +6,8 @@ import './PopupForm.scss';
 import logo from "../../../Assets/Logo/Shahrukz-by-Danube-Logo.png";
 import image from "../../../Assets/Banners/Image-1.webp";
 import brochure from "../../../Assets/Common/Shahrukz-by-Danube-Brochure.pdf";
+import floorplan from "../../../Assets/Common/Floorplan.pdf";
+import pricelist from "../../../Assets/Common/Pricelist.pdf";
 import { useNavigate } from 'react-router-dom';
 import { IoClose } from 'react-icons/io5';
 import { TextField, MenuItem } from '@mui/material';
@@ -14,16 +16,44 @@ import "react-phone-input-2/lib/style.css";
 import { toast } from 'react-toastify';
 import { floorPlanOptions } from "../../../Utils/floorPlans";
 
-const downloadBrochure = () => {
+const downloadAsset = (file, filename) => {
   const link = document.createElement('a');
-  link.href = brochure;
-  link.download = 'Shahrukz-by-Danube-Brochure.pdf';
+  link.href = file;
+  link.download = filename;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 };
 
-function PopupForm({ handleClose, isBrochureDownload = true, initialConfiguration = "" }) {
+const downloads = {
+  floorplan: {
+    file: floorplan,
+    filename: "Shahrukhz-Floor-Plan.pdf",
+    title: "Download Floor Plan",
+    button: "Download Floor Plan",
+    toast: "Thank you! Your floor plan is downloading...",
+    source: "Floor Plan Download Popup",
+  },
+  pricelist: {
+    file: pricelist,
+    filename: "Shahrukhz-Price-List.pdf",
+    title: "Download Price List",
+    button: "Download Price List",
+    toast: "Thank you! Your price list is downloading...",
+    source: "Price List Download Popup",
+  },
+  brochure: {
+    file: brochure,
+    filename: "Shahrukz-by-Danube-Brochure.pdf",
+    title: "Download Brochure & Payment Plan",
+    button: "Download Brochure",
+    toast: "Thank you! Your brochure is downloading...",
+    source: "Brochure Download Popup",
+  },
+};
+
+function PopupForm({ handleClose, isBrochureDownload = true, initialConfiguration = "", downloadType = "brochure" }) {
+  const asset = downloads[downloadType] || downloads.brochure;
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
@@ -57,14 +87,14 @@ function PopupForm({ handleClose, isBrochureDownload = true, initialConfiguratio
     // --- Email service commented out - uncomment when needed ---
     const formDataWithSource = {
       ...formData,
-      source: "Brochure Download Popup"
+      source: asset.source
     };
     try {
       const result = await sendContactFormEmail(formDataWithSource);
       if (result.success) {
         setResponse("Email sent successfully!");
-        toast.success("Thank you! Your brochure is downloading...");
-        downloadBrochure();
+        toast.success(asset.toast);
+        downloadAsset(asset.file, asset.filename);
         setFormData({ name: '', phone: '', email: '', message: '', configuration: '' });
         setFormErrors({});
         handleClose();
@@ -134,9 +164,9 @@ function PopupForm({ handleClose, isBrochureDownload = true, initialConfiguratio
           <div className="popup-content">
             <div className="popup-header">
               <img src={logo} alt="Shahrukhz by Danube" className="popup-logo" />
-              <h1 className="popup-title">Download Brochure & Payment Plan</h1>
+              <h1 className="popup-title">{asset.title}</h1>
               {/* <p className="popup-subtitle">
-                Share your details to receive the Shahrukhz by Danube brochure and payment plan. Offices on Sheikh Zayed Road, starting from AED 1.9M.
+                Share your details to receive the Shahrukhz by Danube brochure and payment plan. Offices on Sheikh Zayed Road, starting from AED 1.65M.
               </p> */}
             </div>
 
@@ -231,7 +261,7 @@ function PopupForm({ handleClose, isBrochureDownload = true, initialConfiguratio
               {formErrors.message && <div className="error-message">{formErrors.message}</div>}
 
               <button type="submit" className="btn btn-glass" disabled={isLoading}>
-                {isLoading ? "Sending..." : "Download Brochure"}
+                {isLoading ? "Sending..." : asset.button}
               </button>
               {response && (
                 <div className={`response-message ${response.includes("successfully") ? "success" : "error"}`}>

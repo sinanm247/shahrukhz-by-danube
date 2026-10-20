@@ -4,12 +4,12 @@ import "./PaymentPlanSection.scss";
 
 const paymentSteps = [
     {
-        value: "70%",
+        value: "30%",
         title: "During Construction",
         text: "Pay easy installments throughout the construction period until handover.",
     },
     {
-        value: "30%",
+        value: "70%",
         title: "Post Handover",
         text: "Settle the remaining balance through convenient 1% monthly installments after handover.",
     },
@@ -27,7 +27,7 @@ export default function PaymentPlanSection() {
                     <h2 className="section-tagline">Shahrukhz by Danube Payment Plan</h2>
                     <h1 className="section-title">Flexible 1% Monthly Payment Plan</h1>
                     <p className="section-description">
-                        Shahrukhz by Danube offers a flexible 70/30 payment plan, enabling investors to secure premium office spaces with convenient installments during construction and 1% monthly payments after completion.
+                        Shahrukhz by Danube offers a flexible 30/70 payment plan, enabling investors to secure premium office spaces with convenient installments during construction and 1% monthly payments after completion.
                     </p>
                 </div>
 

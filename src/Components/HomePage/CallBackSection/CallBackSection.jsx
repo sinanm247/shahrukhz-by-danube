@@ -104,7 +104,7 @@ export default function CallBackSection() {
                         <h2 className="section-tagline">Need Assistance?</h2>
                         <h1 className="section-title">Schedule a Quick Call with Our Team</h1>
                         <p className="section-description">
-                            Premium commercial offices on Sheikh Zayed Road, starting from AED 1.9M. Tell us the layout you want and our team will call you back.
+                            Premium commercial offices on Sheikh Zayed Road, starting from AED 1.65M. Tell us the layout you want and our team will call you back.
                         </p>
                         <p className="contact-info-cta">Request A Call Back</p>
 

@@ -3,8 +3,8 @@ import "./PrestigeSection.scss";
 const highlights = [
     { value: "55", unit: "STOREYS", label: "Commercial Tower" },
     { value: "35+", unit: "AMENITIES", label: "Across the Tower" },
-    { value: "AED 1.9M", unit: "STARTING", label: "Premium Offices" },
-    { value: "70/30", unit: "PLAN", label: "1% Monthly After Completion" },
+    { value: "AED 1.65M", unit: "STARTING", label: "Premium Offices" },
+    { value: "30/70", unit: "PLAN", label: "1% Monthly After Completion" },
     { value: "Dec 2029", unit: "HANDOVER", label: "On Completion" },
     { value: "SZR", unit: "DUBAI", label: "Sheikh Zayed Road" },
 ];

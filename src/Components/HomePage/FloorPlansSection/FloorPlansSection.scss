@@ -1,5 +1,9 @@
 @import '../../../variables';
 
+#floor-plans .section-container {
+    padding-top: 56px;
+}
+
 .floorplan-section {
     .floorplan-header {
         text-align: center;
@@ -7,6 +11,227 @@
         max-width: 760px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .featured-plans {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        max-width: 1180px;
+        margin: 0 auto;
+    }
+
+    .featured-plan {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr;
+        gap: 28px;
+        align-items: center;
+        background: #ffffff;
+        border: 1px solid rgba(201, 162, 39, 0.45);
+        padding: 18px;
+    }
+
+    .featured-plan-figure {
+        margin: 0;
+        background: #062a4a;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .featured-plan-copy {
+        padding: 12px 10px 12px 6px;
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 28px;
+            line-height: 1.2;
+            color: #0A0A0A;
+        }
+    }
+
+    .plan-level {
+        margin: 0 0 8px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: #C9A227;
+    }
+
+    .plan-view {
+        margin: 0 0 18px;
+        color: #333;
+        font-size: 15px;
+    }
+
+    .plan-facts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 18px;
+        margin: 0 0 18px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        dt {
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #777;
+        }
+
+        dd {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #0084C8;
+        }
+    }
+
+    .plan-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            font-size: 13px;
+            color: #0A0A0A;
+            border: 1px solid rgba(0, 132, 200, 0.25);
+            padding: 6px 10px;
+        }
+    }
+
+    .floorplan-cta {
+        max-width: 720px;
+        margin: 48px auto 0;
+        text-align: center;
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            color: #0A0A0A;
+        }
+
+        p {
+            margin: 0 0 22px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .btn {
+            margin: 0 auto;
+            text-transform: uppercase;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .featured-plan {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .featured-plan-copy h3 {
+            font-size: 24px;
+        }
+    }
+
+    .price-block {
+        max-width: 1100px;
+        margin: 0 auto 42px;
+    }
+
+    .price-block-title {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        color: #0A0A0A;
+        margin: 0 0 16px;
+    }
+
+    .price-table-wrap {
+        overflow-x: auto;
+        border: 1px solid rgba(201, 162, 39, 0.45);
+        background: #ffffff;
+    }
+
+    .price-table {
+        width: 100%;
+        min-width: 640px;
+        border-collapse: collapse;
+        font-family: "Anek Latin", sans-serif;
+
+        th, td {
+            padding: 16px 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+            vertical-align: middle;
+        }
+
+        th {
+            background: #0A0A0A;
+            color: #C9A227;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        td {
+            font-size: 15px;
+            color: #0A0A0A;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) td {
+            background: rgba(0, 132, 200, 0.04);
+        }
+
+        .price-figure {
+            font-weight: 700;
+            color: #0084C8;
+            white-space: nowrap;
+        }
+
+        td.level-cell,
+        tbody tr:nth-child(even) td.level-cell {
+            font-weight: 700;
+            color: #C9A227;
+            background: #0A0A0A;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+        }
+
+        .price-note {
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            color: #C9A227;
+        }
+    }
+
+    .price-list-note {
+        max-width: 860px;
+        margin: 8px auto 0;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #555;
     }
 
     .plan-grid {

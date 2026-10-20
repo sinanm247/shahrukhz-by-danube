@@ -2,9 +2,9 @@ import "./InvestorAdvantageSection.scss";
 import towerImage from "../../../Assets/Exteriors/Image-3.webp";
 
 const steps = [
-    { value: "10%", label: "Down Payment" },
     { value: "30%", label: "During Construction" },
     { value: "70%", label: "On handover (December 2029)" },
+    { value: "1%", label: "Monthly After Completion" },
 ];
 
 export default function InvestorAdvantageSection() {
@@ -15,7 +15,7 @@ export default function InvestorAdvantageSection() {
                     <h2 className="section-tagline">Investor Advantage</h2>
                     <h1 className="section-title">Payment Plan</h1>
                     <p className="section-description">
-                        Secure a Shahrukhz office with 10% down, installments through construction, and the balance on handover in December 2029.
+                        Secure a Shahrukhz office on a 30/70 payment plan, with 30% during construction and 70% on handover in December 2029.
                     </p>
                 </div>
             </div>

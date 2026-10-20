@@ -7,6 +7,7 @@ import CallBackSection from "../Components/HomePage/CallBackSection/CallBackSect
 import PaymentPlanSection from "../Components/HomePage/PaymentPlanSection/PaymentPlanSection";
 import LocationSection from "../Components/HomePage/LocationSection/LocationSection";
 import InvestorAdvantageSection from "../Components/HomePage/InvestorAdvantageSection/InvestorAdvantageSection";
+import PricingSection from "../Components/HomePage/PricingSection/PricingSection";
 import FloorPlansSection from "../Components/HomePage/FloorPlansSection/FloorPlansSection";
 import AssistanceSection from "../Components/HomePage/AssistanceSection/AssistanceSection";
 import GallerySection from "../Components/HomePage/GallerySection/GallerySection";
@@ -24,8 +25,9 @@ export default function HomePage() {
             <PaymentPlanSection />
             <LocationSection />
             <InvestorAdvantageSection />
-            <FloorPlansSection />
+            <PricingSection />
             <AssistanceSection />
+            <FloorPlansSection />
             <GallerySection />
         </Fragment>
     );

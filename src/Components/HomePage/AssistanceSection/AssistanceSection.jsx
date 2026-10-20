@@ -11,7 +11,7 @@ export default function AssistanceSection() {
                 <h2 className="section-tagline">Need Assistance?</h2>
                 <h1 className="section-title">Schedule a Quick Call with Our Team</h1>
                 <p className="section-description">
-                    Premium commercial offices on Sheikh Zayed Road, starting from AED 1.9M. Limited availability on the new launch.
+                    Seen a layout or a price that fits? Tell us what you are looking for and the team will call you back.
                 </p>
 
                 <a href="#contact-us" className="btn btn-glass">

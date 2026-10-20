@@ -2,6 +2,7 @@ import logo from "../../../Assets/Logo/Shahrukz-by-Danube-Logo.png";
 import { useLocation } from "react-router-dom";
 import "./Footer.scss";
 import propwiseLogo from "../../../Assets/Logo/propwise-logo-white.png";
+import qrCode from "../../../Assets/Common/qr-code.jpeg";
 
 export default function Footer() {
     const location = useLocation();
@@ -14,7 +15,7 @@ export default function Footer() {
                         <div className="contact_details_group">
                             <h2 className="head">About Shahrukhz by Danube</h2>
                             <p className="description">
-                                Shahrukhz by Danube presents a signature 55-storey commercial tower on Sheikh Zayed Road. Dubai’s first SRK-branded commercial tower, with premium offices, 35+ amenities and a flexible 70/30 payment plan. Starting from AED 1.9M.
+                                Shahrukhz by Danube presents a signature 55-storey commercial tower on Sheikh Zayed Road. Dubai’s first SRK-branded commercial tower, with premium offices, 35+ amenities and a flexible 30/70 payment plan. Starting from AED 1.65M.
                             </p>
                             {location.pathname === "/thank-you" && (
                             <div className="company_website">
@@ -30,6 +31,7 @@ export default function Footer() {
                         <li><a href="#about-us">About</a></li>
                         <li><a href="#amenities">Amenities</a></li>
                         <li><a href="#pricing">Payment Plan</a></li>
+                        <li><a href="#price-list">Pricing</a></li>
                         <li><a href="#location">Location</a></li>
                         <li><a href="#floor-plans">Floor Plans</a></li>
                         <li><a href="#gallery">Gallery</a></li>
@@ -55,8 +57,8 @@ export default function Footer() {
                         <li>55-storey commercial tower</li>
                         <li>SRK-branded address</li>
                         <li>35+ world-class amenities</li>
-                        <li>Starting from AED 1.9M</li>
-                        <li>70/30 · 1% payment plan</li>
+                        <li>Starting from AED 1.65M</li>
+                        <li>30/70 · 1% payment plan</li>
                         <li>Handover December 2029</li>
                         <li>New launch · limited availability</li>
                     </ul>
@@ -71,7 +73,10 @@ export default function Footer() {
             </div>
 
             <div className="footer_disclaimer">
-                <img src={propwiseLogo} alt="Propwise Realty" />
+                <div className="propwise-brand">
+                    <img src={propwiseLogo} className="propwise-logo" alt="Propwise Realty" />
+                    <img src={qrCode} className="permit-card-qr" alt="Propwise Realty QR code" />
+                </div>
                 <p>
                     Office No. M2-183, Aura Xavier Business Center, BN Complex Al Muteena Deira Dubai, UAE<br />
                     License No: 1503017
